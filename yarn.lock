@@ -9021,6 +9021,11 @@ react@^17.0.1:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
 
+reactdom@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/reactdom/-/reactdom-2.0.0.tgz#beeac4d698e3bf3ff0523c79d336a5ff2d532036"
+  integrity sha512-uMNDdGgUECyHQwuVyt3HBAjFt07U+rKy1zFN56skgcPt7/PODbLN7OkMCevgwkX3LsGalA4/757DSVp6DX4dzA==
+
 read-pkg-up@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/read-pkg-up/-/read-pkg-up-2.0.0.tgz#6b72a8048984e0c41e79510fd5e9fa99b3b549be"
