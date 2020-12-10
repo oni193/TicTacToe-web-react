@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 //import styled from 'styled-components';
@@ -53,10 +53,12 @@ const Board = () => {
 }
 
 
-export const Square = (props: SquareProps) => {
+const Square = (props: SquareProps) => {
+  const [value, setValue] = useState(null);
+
   return(
-    <button className="square" onClick={() => { alert('click'); }}>
-      {props.value}
+    <button className="square" onClick={() => { setValue('x') }}>
+      {value}
     </button>
   );
 }
