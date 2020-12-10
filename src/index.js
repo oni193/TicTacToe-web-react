@@ -19,6 +19,10 @@ const Game = () => {
   );
 }
 
+interface SquareProps {
+  value : Number;
+}
+
 
 const Board = () => {
   const renderSquare = (i) => {
@@ -49,11 +53,11 @@ const Board = () => {
 }
 
 
-export const Square = ({value}) => {
+export const Square = (props: SquareProps) => {
   return(
-    <div className="square">
-      {value}
-    </div>
+    <button className="square" onClick={() => { alert('click'); }}>
+      {props.value}
+    </button>
   );
 }
 
