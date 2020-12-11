@@ -91,6 +91,7 @@ const Board = () => {
 }
 
 
+<<<<<<< HEAD
 const Square = (props) => {
   return(
     <button 
@@ -99,6 +100,14 @@ const Square = (props) => {
       props.setSquaresValue("x") 
       }}>
       {props.squareValue}
+=======
+const Square = (props: SquareProps) => {
+  const [value, setValue] = useState(null);
+
+  return(
+    <button className="square" onClick={() => { setValue('x') }}>
+      {value}
+>>>>>>> origin/master
     </button>
   );
 }
