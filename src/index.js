@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{ useState } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 //import styled from 'styled-components';
@@ -19,9 +19,26 @@ const Game = () => {
 }
 
 const Board = () => {
-  const renderSquare = (i) => {
-    return <Square value={i} />;
+  const [squares, setSquares] = useState(Array(9).fill(null));
+
+  function setSquaresValue(i){
+    const squaresArray = squares.slice();
+    squaresArray[i] ='X';
+    setSquares(squaresArray);
   }
+
+  const renderSquare = (i) => {
+
+    return (
+      <Square
+        squareValue={squares[i]}
+        setSquaresValue={() =>{
+          setSquaresValue(i)
+        }}
+        />
+    );
+  }
+  
   const status = 'Next player : X';
     
   return(
@@ -48,11 +65,13 @@ const Board = () => {
 
 
 const Square = (props) => {
-  const [value, setValue] = useState(null);
-
   return(
-    <button className="square" onClick={() => { setValue('x') }}>
-      {value}
+    <button 
+    className="square" 
+    onClick={() => {
+      props.setSquaresValue("x") 
+      }}>
+      {props.squareValue}
     </button>
   );
 }
@@ -64,4 +83,3 @@ const Square = (props) => {
     <Game />,
     document.getElementById('root')
   );
-  
