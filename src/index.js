@@ -45,18 +45,26 @@ const Board = () => {
   const [xIsnext, setXIsnext] = useState(true);
 
 
-  function setSquaresValue(i){
+  const setSquaresValue = (i) => {
     const squaresArray = squares.slice();
+    if(CalculateWinner(squaresArray)||squaresArray[i]){
+      return;
+    }
     squaresArray[i] =xIsnext ? 'X' : 'O';
     setSquares(squaresArray);
     setXIsnext(!xIsnext);
   }
 
-
-  const status = "Next player : " + (xIsnext? 'X' : 'O');
+  
+  const winner = CalculateWinner(squares);
+  let status;
+  if(winner){
+    status = 'Winner'+winner;
+  } else {
+    status = 'Next Player'+(xIsnext?'X':'O');
+  } 
 
   const renderSquare = (i) => {
-
     return (
       <Square
         squareValue={squares[i]}
@@ -91,7 +99,6 @@ const Board = () => {
 }
 
 
-<<<<<<< HEAD
 const Square = (props) => {
   return(
     <button 
@@ -100,14 +107,6 @@ const Square = (props) => {
       props.setSquaresValue("x") 
       }}>
       {props.squareValue}
-=======
-const Square = (props: SquareProps) => {
-  const [value, setValue] = useState(null);
-
-  return(
-    <button className="square" onClick={() => { setValue('x') }}>
-      {value}
->>>>>>> origin/master
     </button>
   );
 }
